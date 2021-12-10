@@ -1,0 +1,53 @@
+defaults:
+  - _self_
+  - trainer: default_trainer
+  - logger: default_logger
+
+  - data: default_data
+  # - eval: default_eval
+
+  - system: few_shot
+  # - debug: none
+
+  # launcher (local/slurm)
+  - launcher: local
+
+  - override hydra/hydra_logging: none
+  - override hydra/job_logging: none
+
+backbone: "resnet10"
+model_name: "base"
+
+model_args: null
+
+linear_bn: False
+linear_bn_affine: False
+
+suffix: ""
+
+source_data: miniImageNet
+
+disable_validation: False
+
+# test: true # test mode
+
+seed: 0
+ckpt: null
+load_base: True
+load_flexible: False
+
+# freeze_backbone: False
+# use_norm: False
+resume: False # whether to resume training
+pretrained: False # use imagenet pretrained model
+
+data:
+  disable_validation: ${disable_validation}
+
+# original_wd: ${hydra:runtime.cwd}
+# data_dir: ${original_wd}/data_loader/
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null

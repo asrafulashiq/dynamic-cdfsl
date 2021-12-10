@@ -1,0 +1,24 @@
+# @package _global_
+
+trainer:
+  num_sanity_val_steps: 2
+  progress_bar_refresh_rate: 5
+  log_every_n_steps: 50
+  check_val_every_n_epoch: 5
+
+# sim_epoch: 5
+
+eval:
+  fine_tune:
+    trainer_params:
+      progress_bar_refresh_rate: 5
+      num_sanity_val_steps: 2
+      # max_epochs: 5
+
+    unlabel_params:
+      trainer_params:
+        num_sanity_val_steps: 2
+        progress_bar_refresh_rate: 5
+        check_val_every_n_epoch: 1
+        log_every_n_steps: 50
+        # max_epochs: 5

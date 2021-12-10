@@ -1,0 +1,50 @@
+# dataset path and num class
+
+miniImageNet:
+  data_path: "data/cdfsl/mini-ImageNet"
+  num_class: 100
+  num_data: 60000
+
+miniImageNettest:
+  data_path: "data/cdfsl/mini-ImageNet"
+  num_class: 100
+  num_data: 60000
+
+tieredImageNet:
+  data_path: "data/cdfsl/tieredImageNet"
+  num_class: 351
+
+tieredImageNettest:
+  data_path: "data/cdfsl/tieredImageNet"
+  num_class: 351
+
+# Agriculture
+CropDisease:
+  data_path: "data/cdfsl/CropDiseases"
+  num_class: 38
+  num_data: 54305
+  split: 43456,10849
+
+# fine-grained classification
+CUB:
+  data_path: "data/cdfsl/CUB_200_2011"
+  num_class: 200
+  num_data: 6032
+  split: 3000,3033
+
+# Satellite
+EuroSAT:
+  data_path: "data/cdfsl/EuroSAT/2750"
+  num_class: 10
+  num_data: 27000
+
+# Medical
+ChestX:
+  data_path: "data/cdfsl/chest_xray"
+  num_class: 7
+  num_data: 25848
+
+ISIC:
+  data_path: "data/cdfsl/ISIC"
+  num_class: 7
+  num_data: 10015

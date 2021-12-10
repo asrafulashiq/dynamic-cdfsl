@@ -1,0 +1,27 @@
+# @package _global_
+
+defaults:
+  - /system/ce_distill_abstract
+  - override /optimizer: SGD
+
+system_name: "ce_distill_ema"
+model_name: "ce_distill_ema"
+
+cosine_weight: true
+
+# ema
+mometum_update: 0.99
+
+apply_center: false
+center_momentum: 0.9
+
+# config for temperature
+teacher_temp: 0.1
+
+ckpt_preload: ckpt/ce_${source_data}_${backbone}/last.ckpt
+
+#
+extractor: student
+
+trainer:
+  max_epochs: 60

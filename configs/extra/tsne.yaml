@@ -1,0 +1,31 @@
+# @package _global_
+
+out_path: "figs"
+model_name: "tsne"
+num_classes: 100
+
+data:
+  dataset: EuroSAT_test
+  test_dataset: null
+  val_dataset: null
+
+  num_classes: ${num_classes}
+
+  train_aug: false
+  val_aug: false
+
+perplexity: 30
+max_labels: 10
+max_batches: 2000
+percent_label: null
+
+batch_size: 128
+
+test: true
+diable_logfile: true
+load_base: true
+disable_validation: true
+
+trainer:
+  gpus: 1
+  progress_bar_refresh_rate: 2

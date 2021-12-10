@@ -1,0 +1,44 @@
+# @package _global_
+
+defaults:
+  - /eval/fine_tune/optimizer@eval.fine_tune.in_train.optimizer: SGD
+
+eval:
+  fine_tune:
+    selftrain: true
+
+    freeze_bn: false # batchnorm freeze
+    last_k: -1 # unfreeze all
+    lr_multiplier_backbone: 1.0
+
+    selection_type: "class"
+    model_unlabel: null # 'moco'
+    unlabel_aug: "few_shot_query"
+
+    threshold: null # threshold for selecting pseudo label
+    # soft_label: false # whether to select soft-pseudo label
+
+    num_unlabel_data: 1000
+
+    unlabel_num_classes: 10
+
+    unlabel_params:
+      batch_size: 64
+      trainer_params:
+        gpus: 1
+        max_epochs: 50
+        check_val_every_n_epoch: 5
+        num_sanity_val_steps: 0
+        progress_bar_refresh_rate: 0
+
+      unlabel_class_select: null # or "all", whether to use all classes
+
+    in_train:
+      # reset_head: true
+      freeze_backbone: false
+      use_norm: false
+
+    pre_train:
+      reset_head: true
+      freeze_backbone: true
+      use_norm: false

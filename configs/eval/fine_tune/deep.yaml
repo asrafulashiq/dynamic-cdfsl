@@ -1,0 +1,11 @@
+name: "deep"
+
+trainer_params:
+  gpus: 1
+  max_epochs: 50
+  checkpoint_callback: false
+  logger: false
+  progress_bar_refresh_rate: 0
+  num_sanity_val_steps: 0
+  check_val_every_n_epoch: 5
+  weights_summary: null

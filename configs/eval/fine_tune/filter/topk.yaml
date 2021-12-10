@@ -1,0 +1,10 @@
+# @package _global_
+
+eval:
+  fine_tune:
+    filter:
+      _target_: "system.utils_selftune.filter_by_topk"
+      topk: 0.4
+      by_class: true
+      soft_label: false
+      _convert_: partial

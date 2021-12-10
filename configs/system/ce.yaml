@@ -1,0 +1,32 @@
+# @package _global_
+
+defaults:
+  - /optimizer: Adam
+  - /eval: default_eval
+  - /eval/fine_tune: LR
+  - /callbacks: default_callbacks
+  - /scheduler: step
+
+system_name: "ce"
+test: false
+eval_mode: "few_shot"
+model_name: "ce"
+
+print_val: false
+
+data:
+  batch_size: 256 # 32
+  dataset: miniImageNet_train
+  val_dataset: miniImageNet_val
+  test_dataset: miniImageNet_test
+  train_aug: train
+
+trainer:
+  num_sanity_val_steps: 0
+  check_val_every_n_epoch: 5
+  gpus: 1
+  max_epochs: 400
+  sync_batchnorm: true
+
+launcher:
+  time: "6"

@@ -1,0 +1,4 @@
+# @package _global_
+
+n_shot: 1
+support_repeat: 5

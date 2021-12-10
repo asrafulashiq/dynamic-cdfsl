@@ -1,0 +1,59 @@
+# @package _global_
+
+defaults:
+  - /optimizer: Adam
+  - /eval: default_eval
+  - /eval/fine_tune: LR
+  - /callbacks: default_callbacks
+  - /scheduler: step
+
+test: false
+eval_mode: "few_shot"
+
+# config for weights
+lm_ce: 1
+lm_u: 1
+
+cosine_weight: true
+
+# config for temperature
+teacher_temp: 0.1
+
+apply_unlabel: true
+reset_student_head: false
+
+unlabel_aug: "weak_strong"
+
+#
+simclr: false
+simclr_params:
+  temperature: 0.1
+  projection: true
+
+unlabel_params:
+  dataset: EuroSAT_train
+  batch_size: ${data.batch_size}
+  unlabel_aug: ${unlabel_aug} # NOTE
+  no_stop_grad: false
+
+ckpt_preload: ckpt/ce_${source_data}_${backbone}/last.ckpt
+load_flexible: true
+
+print_val: false
+
+data:
+  batch_size: 32
+  dataset: ${source_data}_train
+  val_dataset: [miniImageNet_val, EuroSAT_test]
+  test_dataset: ${source_data}_test
+  train_aug: true # train # NOTE
+
+trainer:
+  num_sanity_val_steps: 0
+  check_val_every_n_epoch: 5
+  gpus: 1
+  max_epochs: 100
+  sync_batchnorm: true
+
+launcher:
+  time: "6"

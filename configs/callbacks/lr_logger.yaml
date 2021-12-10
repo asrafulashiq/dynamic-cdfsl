@@ -1,0 +1,5 @@
+# @package _global_
+callbacks:
+  lr_logger:
+    _target_: callbacks.lr_monitor.LearningRateMonitor
+    logging_interval: "epoch"

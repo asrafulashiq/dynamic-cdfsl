@@ -1,0 +1,59 @@
+# @package _global_
+
+# slurm launcher with submitit
+
+launcher:
+  name: "submitit_eval"
+  mode: "submit"
+
+  time: 6
+  nodes: 1
+  ntasks_per_node: 1
+  cpus_per_task: 4
+
+  mem_per_cpu: 10000
+  # folder: "${env:HOME}/log_cdfsl_fewshot/${model_name}"
+  signal_delay_s: 0
+  log_root: ${env:HOME}/log_cdfsl_fewshot
+  job: ${model_name}
+
+  gpus: 1
+  num_runs: 10
+
+  save_tune_dir: ".study/fshot"
+
+  resume: False
+
+  # submitit executor
+  executor:
+    _target_: submitit.SlurmExecutor
+    # _target_: submitit.AutoExecutor
+    max_num_timeout: 0
+
+  params_submitit:
+    nodes: ${launcher.nodes}
+    ntasks_per_node: ${launcher.ntasks_per_node}
+    cpus_per_task: ${launcher.cpus_per_task}
+
+    mem_per_cpu: ${launcher.mem_per_cpu}
+    signal_delay_s: ${launcher.signal_delay_s}
+
+    num_gpus: ${launcher.gpus}
+
+    additional_parameters:
+      mail_type: "FAIL"
+      mail_user: "asrafulashiq@gmail.com"
+
+  setup: [ "export NCCL_DEBUG=INFO",
+  "export PYTHONFAULTHANDLER=1",
+  "export SLURM_JOB_NODELIST=$(scontrol show hostnames $SLURM_JOB_NODELIST | tr '\\n' ' ')",
+  "export SLURM_NODELIST=$SLURM_JOB_NODELIST",
+  "slurm_nodes=$(scontrol show hostnames $SLURM_JOB_NODELIST)",
+  "export MASTER_ADDRESS=$(echo $slurm_nodes | cut -d' ' -f1)"
+  ]
+
+# override pl_trainer params
+trainer:
+  progress_bar_refresh_rate: 0
+  gpus: ${launcher.gpus}
+  num_nodes: ${launcher.nodes}

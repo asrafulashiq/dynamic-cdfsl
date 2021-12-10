@@ -1,0 +1,12 @@
+# @package eval.fine_tune
+
+batch_size: 4
+freeze_bn: false
+last_k: null
+use_norm: true # for 1-shot, has to use norm
+freeze_backbone: true
+lr_multiplier_backbone: 1.0
+
+post_train:
+  freeze_backbone: true
+  use_norm: true

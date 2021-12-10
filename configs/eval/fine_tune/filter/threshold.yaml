@@ -1,0 +1,9 @@
+# @package _global_
+
+eval:
+  fine_tune:
+    filter:
+      _target_: "system.utils_selftune.filter_by_threshold"
+      threshold: null
+      soft_label: false
+      _convert_: partial

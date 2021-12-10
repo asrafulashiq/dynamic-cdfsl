@@ -1,0 +1,11 @@
+# @package _global_
+
+disable_logfile: False
+
+logger:
+  _target_: utils.custom_logger.CustomLogger
+  name: ${model_name}${suffix}
+  version: null
+  test: ${test}
+  save_dir: "logs"
+  disable_logfile: ${disable_logfile}

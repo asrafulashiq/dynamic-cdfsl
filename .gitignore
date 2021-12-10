@@ -1,0 +1,6 @@
+data
+*.pyc
+*.ini
+__pycache__
+logs
+*.jpg

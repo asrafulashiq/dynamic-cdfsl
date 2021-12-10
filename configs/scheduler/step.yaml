@@ -1,0 +1,8 @@
+# @package _global_
+scheduler:
+  _target_: torch.optim.lr_scheduler.MultiStepLR
+  # milestones: [60, 80]
+  milestones:
+    - ${multiply:${trainer.max_epochs},0.7}
+    - ${multiply:${trainer.max_epochs},0.9}
+  gamma: 0.1

@@ -1,0 +1,23 @@
+# @package _global_
+
+launcher:
+  name: "slurm"
+  time: 6
+  nodes: 1
+  cpus_per_task: 4
+
+  partition: null
+  auto: false
+  from_slurm: false
+
+  mem_per_cpu: 10000
+  log_root: ${env:HOME}/log_cdfsl_fewshot
+  job: ${model_name}
+  gpus: 1
+  email: "asrafulashiq@gmail.com"
+
+# override pl_trainer params
+trainer:
+  progress_bar_refresh_rate: 0
+  gpus: ${launcher.gpus}
+  num_nodes: ${launcher.nodes}

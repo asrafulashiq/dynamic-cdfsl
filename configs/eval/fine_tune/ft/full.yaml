@@ -1,0 +1,18 @@
+# @package eval.fine_tune
+
+batch_size: 4
+freeze_bn: false # batchnorm freeze
+last_k: -1 # unfreeze all
+
+# NOTE it's important to apply use_norm in full-finetunw
+use_norm: true
+
+freeze_backbone: false
+lr_multiplier_backbone: 1.0
+
+optimizer:
+  weight_decay: 0.0
+
+post_train:
+  freeze_backbone: false
+  use_norm: true

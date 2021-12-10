@@ -1,0 +1,24 @@
+# @package _global_
+
+defaults:
+  - /eval/fine_tune: LR
+  - /system: ce
+
+  - override /callbacks: default_callbacks
+  - override /scheduler: cosine_warmup
+
+data:
+  dataset: miniImageNet_train
+  val_dataset: miniImageNet_val
+  test_dataset: miniImageNet_test
+
+trainer:
+  num_sanity_val_steps: 0
+  check_val_every_n_epoch: 5
+  gpus: 1
+  max_epochs: 200
+  sync_batchnorm: true
+  replace_sampler_ddp: True
+
+launcher:
+  time: "6"

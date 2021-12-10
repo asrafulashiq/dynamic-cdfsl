@@ -1,0 +1,8 @@
+# @package _global_
+
+data:
+  # 'imagenet', 'cifar10', 'cifar100'
+  normalize_type: "imagenet"
+
+  train_aug: "true"
+  val_aug: "few_shot_test"

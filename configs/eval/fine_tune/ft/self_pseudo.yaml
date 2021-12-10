@@ -1,0 +1,49 @@
+# @package _global_
+
+eval:
+  fine_tune:
+    selftrain: fixmatch
+
+    batch_size: 5
+    freeze_bn: false # batchnorm freeze
+    last_k: -1 # unfreeze all
+    # use_norm: false
+    # freeze_backbone: false
+    lr_multiplier_backbone: 1.0
+
+    selection_type: "class"
+    model_unlabel: null # 'moco'
+
+    unlabel_aug: "few_shot_query"
+
+    threshold: 0.2 # NOTE threshold for selecting pseudo label
+    pseudo_weight: 1 # NOTE weight of unlabel_loss
+    # soft_label: false # whether to select soft-pseudo label
+
+    num_unlabel_data: 1000
+    unlabel_num_classes: 10
+
+    unlabel_params:
+      batch_size: 32
+      trainer_params:
+        gpus: 1
+        max_epochs: 50
+        check_val_every_n_epoch: 1
+        num_sanity_val_steps: 0
+        progress_bar_refresh_rate: 0
+
+      unlabel_class_select: null # or "all", whether to use all classes
+
+    # pre_train:
+    #   freeze_backbone: false
+    #   use_norm: false
+
+    # # NOTE this is what matters
+    # post_train:
+    #   freeze_backbone: true
+    #   use_norm: true
+
+    in_train:
+      reset_head: true
+      freeze_backbone: false
+      use_norm: true
