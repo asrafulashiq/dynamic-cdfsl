@@ -8,7 +8,7 @@ Pytorch implementation of NeurIPS 2021 paper *Dynamic Distillation Network for C
 
 <div align="center">    
 
-<img width="100%" alt="Proposed Framework" src="assets/thumbnail.png">
+<img width="50%" alt="Proposed Framework" src="assets/thumbnail.png">
 
 </div>
 
