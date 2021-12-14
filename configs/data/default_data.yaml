@@ -1,0 +1,33 @@
+# dataset
+dataset: "miniImageNet_train"
+val_dataset: "EuroSAT"
+test_dataset: null
+
+image_size: 224
+batch_size: 32
+val_batch_size: null
+
+num_classes: null
+
+split_fraction: 0.2 # train split
+
+# augmentation
+normalize_type: "imagenet" # 'imagenet', 'cifar10', 'cifar100'
+
+train_aug: "true"
+val_aug: "few_shot_test"
+
+# partial', 'disjoint', 'overlap', ''
+train_split_type: null
+val_split_type: null
+
+# basic data loader
+seed: 0
+split_seed: 0
+num_workers: 6
+shuffle_val: False
+limit_train_data: null
+
+# rank
+replica_rank: null
+num_replica: 1
