@@ -5,4 +5,4 @@ __pycache__
 logs
 *.jpg
 
-! configs/**
+! configs/data/default_data.yaml
