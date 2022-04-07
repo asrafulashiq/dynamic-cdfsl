@@ -26,7 +26,7 @@ Download the datasets from [here](https://drive.google.com/drive/folders/1X7WacU
 
 ## Pretraining
 
-Put the cross-entropy pretrained model (download from [here](https://drive.google.com/drive/folders/1T6QzEnAnbw4-FljldU03YJ84RZUfWhjm?usp=sharing)) on `mini-ImageNet` in `ckpt/ce_miniImageNet_resnet10`
+Download the cross-entropy pretrained model (download from [here](https://drive.google.com/drive/folders/1T6QzEnAnbw4-FljldU03YJ84RZUfWhjm?usp=sharing)) on mini-ImageNet in `ckpt/ce_miniImageNet_resnet10`.
 
 Or, train by running:
 
@@ -51,9 +51,9 @@ Change `EuroSAT` to other dataset to train on `CropDisese`, `ChestX`, `ISIC`.
 
 Model will be saved in `ckpt/dynamic_cdfsl_EuroSAT/last.ckpt`
 
-## Pretrained checkpoint
+## Pretrained checkpoints
 
-You can download the pretrained checkpoints from [here](https://drive.google.com/drive/folders/1uFuSDL_vo2DJHLPqNS7R_iWuOzLazpc6?usp=sharing). Put the checkpoints in `ckpt` folder.
+You can download the pretrained checkpoints on the BSCD-FSL benchmark datasets from [here](https://drive.google.com/drive/folders/1uFuSDL_vo2DJHLPqNS7R_iWuOzLazpc6?usp=sharing).
 
 ## Few-shot evaluation
 

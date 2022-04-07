@@ -4,5 +4,9 @@ data
 __pycache__
 logs
 *.jpg
+<<<<<<< HEAD
 
 ! configs/data/default_data.yaml
+=======
+!configs/data
+>>>>>>> 1af001370bd996bb55aba28381cce8b66de31379
