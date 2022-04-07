@@ -1,7 +1,7 @@
 # @package _global_
 
 defaults:
-  - /optimizer: Adam
+  - /optimizer: SGD
   - /eval: default_eval
   - /eval/fine_tune: LR
   - /callbacks: default_callbacks
@@ -15,7 +15,7 @@ model_name: "ce"
 print_val: false
 
 data:
-  batch_size: 256 # 32
+  batch_size: 32
   dataset: miniImageNet_train
   val_dataset: miniImageNet_val
   test_dataset: miniImageNet_test
@@ -24,8 +24,8 @@ data:
 trainer:
   num_sanity_val_steps: 0
   check_val_every_n_epoch: 5
-  gpus: 1
-  max_epochs: 400
+  gpus: 4
+  max_epochs: 200
   sync_batchnorm: true
 
 launcher:
