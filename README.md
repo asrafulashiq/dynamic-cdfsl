@@ -31,7 +31,7 @@ Download the cross-entropy pretrained model (download from [here](https://drive.
 Or, train by running:
 
 ```bash
-python main.py system=ce  backbone=resnet10 data.dataset=miniImageNet_train  model_name=ce_miniImageNet_resnet10 
+python main.py system=ce  backbone=resnet10 data.dataset=miniImageNet_train  model_name=ce_miniImageNet_resnet10 trainer.gpus=4
 ```
 
 ## Training
